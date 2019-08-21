@@ -1,52 +1,48 @@
-import React from 'react';
+import React, { useState } from "react";
 
-const Form=function(){
-    const[tmAttr,setTmAttr]=useState({
+const TeamMemberForm = function(props){
+    // tm for team member
+    const [tm, setTm] = useState({ 
         name:'',
-        title:'',
-        hobbies:'',
-        phone:'',
-        email:''
+        title:''
     });
-    return(
-        <form>
-            <label htmlFor='name'>New Name</label>
-            <input
-            type='text'
-            name='name'
-            value={tmAttr.name}
-            />
-            <label htmlFor='Title'>new Title</label>
-            <input 
-            type='text'
-            name='title'
-            value={tmAttr.title}
-            />
-            <label htmlfor='hobbies'>Hobbies</label>
-            <input 
-            type='text' 
-            name='hobbies'
-            value={tmAttr.hobbies}
-            />
-            <label htmlFor='phone'>phone number</label>
-            <input
-            type='text'
-            name='phone'
-            value={tmAttr.phone}
-            />
-            <label htmlFor='email'>e-mail</label>
-            <input
-            type='text'
-            name='email'
-            value={tmAttr.email}
-            />
 
-            <button type='submit'>add team member</button>
+    const handleChange = event => {
+        console.log('change handled:',event.target.value);
+        setTm({...tm, [event.target.name]: event.target.value});
+    }
 
 
 
-        </form>
-    )
+const submitForm = event => {
+    event.preventDefault();
+    console.log('form submitted');
+    const newTm = {...tm, id: Date.now()};
+    props.addNewTeamMember(newTm);
+    setTm({name:'', title:''});
+};
+
+return(
+    <form onSubmit={submitForm}>
+        <label htmlFor='name'>New Team Member Name</label>
+        <input
+        type='text'
+        name='name'
+        value={tm.name}
+        onChange={handleChange}
+        />
+        <label htmlFor='title'>New Team Member Title</label>
+        <input
+        type='text'
+        name='title'
+        value={setTm.title}
+        onChange={handleChange}
+        />
+    <button type='submit'>Add Team Member</button>
+    </form>
+);
 }
-export default Form;
+
+
+export default TeamMemberForm;
 

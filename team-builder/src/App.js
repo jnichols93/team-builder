@@ -1,22 +1,22 @@
-import React from 'react';
-
+import React, { useState } from "react";
 import './App.css';
-import Form from './components/form';
 import TeamList from './components/teamList';
+import TeamMemberForm from './components/form';
 
 function App() {
- 
-  
+  const [teamMembers, setTeamMembers] = useState([]);
+
+  const addNewTeamMember = teamMember => {
+    setTeamMembers([...teamMembers, teamMember]);
+  };
+
   return (
     <div className="App">
-      <header className="appHeader">
-      <h1>meet the team</h1>
+      <header className="App-header">
+        <h1>This is my Team Builder App</h1>
       </header>
-      <Form/>
-      <TeamList/>
-
-
-      
+      <TeamMemberForm addNewTeamMember={addNewTeamMember}/>
+      <TeamList teamMemberList={teamMembers} />
     </div>
   );
 }
