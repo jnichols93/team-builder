@@ -1,12 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
-import {teamList as List} from './components/teamList';
+import Form from './components/form';
+import TeamList from './components/teamList';
+
 function App() {
+ 
+  
   return (
     <div className="App">
-      <h1>Team List</h1>
-      <List/>
+      <header className="appHeader">
+      <h1>meet the team</h1>
+      </header>
+      <Form/>
+      <TeamList/>
+
+
+      
     </div>
   );
 }

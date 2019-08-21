@@ -1,12 +1,52 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const Form=function(){
+    const[tmAttr,setTmAttr]=useState({
+        name:'',
+        title:'',
+        hobbies:'',
+        phone:'',
+        email:''
+    });
+    return(
+        <form>
+            <label htmlFor='name'>New Name</label>
+            <input
+            type='text'
+            name='name'
+            value={tmAttr.name}
+            />
+            <label htmlFor='Title'>new Title</label>
+            <input 
+            type='text'
+            name='title'
+            value={tmAttr.title}
+            />
+            <label htmlfor='hobbies'>Hobbies</label>
+            <input 
+            type='text' 
+            name='hobbies'
+            value={tmAttr.hobbies}
+            />
+            <label htmlFor='phone'>phone number</label>
+            <input
+            type='text'
+            name='phone'
+            value={tmAttr.phone}
+            />
+            <label htmlFor='email'>e-mail</label>
+            <input
+            type='text'
+            name='email'
+            value={tmAttr.email}
+            />
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+            <button type='submit'>add team member</button>
+
+
+
+        </form>
+    )
+}
+export default Form;
+
