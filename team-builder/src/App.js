@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>This is my Team Builder App</h1>
+        <h1>Join the Team</h1>
       </header>
       <TeamMemberForm addNewTeamMember={addNewTeamMember}/>
       <TeamList teamMemberList={teamMembers} />
